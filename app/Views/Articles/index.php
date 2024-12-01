@@ -3,10 +3,13 @@
 
 <?= $this->section('content') ?>
 <h1>Listado de articulos</h1>
+<a href="<?=url_to('Articles::new')?>">New Article</a>
 <?php foreach ($articles as $article): ?>
     <article>
-        <h2><?= $article['title'] ?></h2>
-        <p><?= $article['content'] ?></p>
+        <h2><a href="<?= site_url('/articles/' . $article['id']) ?>">
+                <?= esc($article['title']) ?></a>
+        </h2>
+        <p><?= esc($article['content']) ?></p>
     </article>
 <?php endforeach ?>
 <?= $this->endSection() ?>
